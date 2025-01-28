@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><%= rows.boss_name%></title><link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/ejsstyle.css">
+        <script type="module" src='background.js'></script>
+        <link rel="stylesheet" href="css/sidebar.css">
+    </head>
+
+    <body>
+        <div class="sidebar">
+            <a href="/"><img src="Images/Favicon.png" class="homeicon"></a>
+            <a href="/bosseskilled"><img src="Images/DeadSkull.png" class="standardicon"></a>
+            <a href="/bossesalive"><img src="Images/AliveSkull.png" class="standardicon"></a>
+            <a href="/gamedirectory"><img src="Images/Controller.png" class="standardicon"></a>
+        </div>
+        <div class="outerdiv">
+            <div class="horizontaldiv"> <!-- Top Double -->
+                <article class="topdivleft"> <!-- The Name and Game -->
+                    <h3>Boss Name</h3>
+                    <h1><%= rows.boss_name%></h1> <!-- The < %= used here is for ejs, and allows for dynamic pages-->
+                    <h4>From</h4> 
+                    <h2><%= rows.game%></h2>
+                </article>
+                <div class="topdivright"> <!-- The Image -->
+                    <img src="<%= rows.image %>" class="boss">
+                </div>
+            </div>
+            <div class="horizontaldiv"> <!-- Middle Double -->
+                <div class="bigdiv"> <!-- About section -->
+                    <div class="slamleftdiv">
+                        <h2>A little about this boss</h2>
+                    </div>
+                    <h5><%= rows.about%></h5>
+                </div>
+                <div class="smalldiv"> <!-- Rating and difficulty -->
+                    <div class="slamleftdiv">
+                        <h3>Rating</h3>
+                    </div>
+                    <div id="ratingstars" class="diffandrating">
+                        <script>
+                            const rating = <%= rows.rating %>
+                            const goodstar = rating;
+                            const badstar = 5-goodstar;
+                            const stardiv = document.getElementById("ratingstars");
+                            for (let i = 0; i < goodstar; i++) {
+                                const fullstar = document.createElement("img");
+                                fullstar.src = '/Images/starfull.png';
+                                stardiv.appendChild(fullstar);
+                            }
+                            for (let i = 0; i < badstar; i++) {
+                                const emptystar = document.createElement("img");
+                                emptystar.src = '/Images/starempty.png';
+                                stardiv.appendChild(emptystar);
+                            }
+                        </script>
+                    </div>
+                    <div class="slamleftdiv">
+                        <h3>Difficulty</h3>
+                    </div>
+                    <div id="diffskulls" class="diffandrating">
+                        <script>
+                            const difficulty = <%= rows.difficulty %>
+                            const goodskull = difficulty;
+                            const badskull = 5-goodskull;
+                            const skulldiv = document.getElementById("diffskulls");
+                            for (let i = 0; i < goodskull; i++) {
+                                const fullskull = document.createElement("img");
+                                fullskull.src = '/Images/skullfull.png';
+                                skulldiv.appendChild(fullskull);
+                            }
+                            for (let i = 0; i < badskull; i++) {
+                                const emptyskull = document.createElement("img");
+                                emptyskull.src = '/Images/skullempty.png';
+                                skulldiv.appendChild(emptyskull);
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <div class="horizontaldiv"> <!-- Bottom Double -->
+                <div id="killedbox" class="smalldiv"> <!-- Is the boss Dead? -->
+                    <h3>Have you<br>Killed it?</h3>
+                    <% switch(rows.Killed) {
+                        case '1' : %>
+                            <h5>The triumph is strong, be proud and kill more</h5>
+                            <% break; 
+                        case '0' : %>
+                            <button type="button" id="killedbossbtn" onclick="bosskill('<%= rows.boss_name %>')"> Click Once Killed </button>
+                            <script>
+                                function bosskill(boss) {
+                                    fetch('/api/bosskilled', {
+                                        method : 'PUT',
+                                        headers: {'Content-Type' : 'application/json'},
+                                        body   : JSON.stringify({bossName : boss})
+                                    });
+                                };
+                            </script>
+                            <% break;
+                    } %>
+                </div>
+                <div class="bigdiv"> <!-- The Wiki Page :O -->
+                    <h3>Dedicated Wiki Found</h3>
+                    <a href="<%=rows.website%>"><h6>Here</h6></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

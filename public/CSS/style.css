@@ -1,0 +1,201 @@
+
+canvas {  
+	width: 100vw;
+	height: 100vh;
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -9999;
+}
+
+
+* {
+    font-family: "Roboto Condensed", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+label {
+	color: #ffffff;
+	font-size: 20px;
+}
+
+.bigtext{
+    vertical-align: middle;
+    color: white;
+    margin: 0%;
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.medtext {
+    vertical-align: middle;
+    color: white;
+    margin: 0%;
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.smltext {
+    vertical-align: middle;
+    color: white;
+    margin: 0%;
+    font-size: 40px;
+    font-weight: 800;
+}
+.seltext {
+    vertical-align: middle;
+    color: rgb(0, 0, 0);
+    margin: 0%;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+h1 {
+    vertical-align: middle;
+    color: white;
+    margin: 0%;
+    font-size: 48px;
+    font-weight: 900;
+}
+
+h2 {
+    vertical-align: middle;
+    color: white;
+    margin: 0%;
+    font-size: 32px;
+    font-weight: 900;
+}
+
+h3 {
+    vertical-align: middle;
+    color: white;
+    margin: 0%;
+    font-size: 40px;
+    font-weight: 800;
+}
+
+h4 {
+    vertical-align: middle;
+    color: white;
+    margin: 0%;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+h5 {
+    vertical-align: middle;
+    color: white;
+    margin: 0%;
+    font-size: 32px;
+    font-weight: 300;
+}
+
+h6 {
+    vertical-align: middle;
+    color: white;
+    margin: 0%;
+    font-size: 64px;
+    font-weight: 100;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.headerdiv {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-left: 100px;
+}
+
+.select {
+	padding: 25px;
+	text-align: right;
+}
+
+#info {
+    color: rgb(255, 255, 255);
+	position: absolute;
+	top: 100px;
+	width: 100%;
+	text-align: left;
+	display:block;
+}
+
+body {
+	text-align: center;
+	margin: 0; 
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+
+.outline{
+	padding:5px;
+	border-radius: 10px;
+	background-color: rgba(40, 40, 40, 0.5);
+	width:fit-content;
+	margin:auto;
+}
+.rightside {
+	text-align: right;
+	padding: 25px;
+}
+img{
+	height: 200px;
+	width: auto;
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: 10px;
+}
+
+.tooltip .tooltiptext {
+	display: none;
+	text-align: center;
+	width: auto;
+	padding: 10px;
+	border-bottom: 1px dotted black;
+	background-color: rgb(41, 41, 41);
+	color: #ffffff;
+	border-radius: 20px;
+	
+	/* Position the tooltip */
+	position: relative;
+	top: 5px;
+	z-index: 1;
+}
+
+div.sidetoside {
+	width:100%;
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+}
+
+div.sidetoside div {
+	padding-left: 5px;
+	float:right;
+}
+
+div.verticalalign1{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+div.verticalalign{
+	height: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+.tooltip:hover .tooltiptext {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

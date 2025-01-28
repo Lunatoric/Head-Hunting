@@ -1,0 +1,142 @@
+canvas {  
+	width: 100vw;
+	height: 100vh;
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -9999;
+}
+
+* {
+    font-family: "Roboto Condensed", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+body {
+    text-align: center;
+}
+
+h1 {
+    vertical-align: middle;
+    color: white;
+    margin: 0%;
+    font-size: 62px;
+    font-weight: 900;
+}
+
+h2 {
+    vertical-align: middle;
+    color: white;
+    margin: 0%;
+    font-size: 48px;
+    font-weight: 900;
+}
+
+h3 {
+    vertical-align: middle;
+    color: white;
+    margin: 0%;
+    font-size: 40px;
+    font-weight: 800;
+}
+
+h4 {
+    vertical-align: middle;
+    color: white;
+    margin: 0%;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+h5 {
+    vertical-align: middle;
+    color: white;
+    margin: 0%;
+    font-size: 32px;
+    font-weight: 300;
+}
+
+h6 {
+    vertical-align: middle;
+    color: white;
+    margin: 0%;
+    font-size: 64px;
+    font-weight: 100;
+}
+
+div{
+    border-radius: 20px;
+}
+.outerdiv {
+    border-radius: 30px;
+    margin: auto;
+    width:fit-content;
+    padding: 5px 0px 5px 0px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.horizontaldiv {
+    overflow: auto;
+    display:flex;
+    flex-direction: row;
+    width: 810px;
+    padding: 5px 10px 5px 10px;
+    gap: 10px;
+    height:300px;
+}
+
+.slamleftdiv {
+    text-align: left;
+    padding-left: 10px;
+}
+.diffandrating {
+    display: flex;
+    flex-direction: row;
+    width: 235;
+    padding: 20px;
+    gap: 10px;
+}
+.boss {
+    border-radius: 10px;
+    width: auto;
+    height: 280px;
+    min-width: 200px;
+    max-width: 360px;
+    object-fit: cover;
+}
+
+
+.topdivleft{
+    background-color: rgba(0, 0, 0, 0.4);
+    display:flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    padding: 10px;
+    width: 100%;
+    vertical-align: middle;
+    min-width: 320px;
+}
+
+.topdivright{
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    max-width: 500px;
+}
+
+.smalldiv {
+    display:flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    width:250px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.bigdiv {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 550px;
+    background-color: rgba(0, 0, 0, 0.4);
+}

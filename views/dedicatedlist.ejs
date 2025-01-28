@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Head Hunting</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script type="module" src='background.js'></script>
+        <link rel="stylesheet" href="css/sidebar.css">
+    </head>
+
+    <body>
+        <article class="sidebar">
+            <a href="/"><img src="Images/Favicon.png" class="homeicon"></a>
+            <a href="/bosseskilled"><img src="Images/DeadSkull.png" class="standardicon"></a>
+            <a href="/bossesalive"><img src="Images/AliveSkull.png" class="standardicon"></a>
+            <a href="/gamedirectory"><img src="Images/Controller.png" class="standardicon"></a>
+        </article>
+        
+        <ul id="bosses">
+            <% var curpage = page %>
+            <% for( var i = (curpage-1)*10; ((i < curpage*10) && (i < ((rows).length))); i++ ) { %>
+            <% const bosssite = new URLSearchParams({boss : rows[i].boss_name}) %>
+            <li>
+                <div  class="tooltip">
+                    <div class="outline">
+                        <a href="/boss?<%= bosssite %>">
+                            <h1 class="bosstitle"><%= rows[i].boss_name %></h1>
+                        </a>
+                    </div>
+                    <span class="tooltiptext">
+                        <div class="sidetoside">
+                            <div class="verticalalign">
+                                <h1><%= rows[i].boss_name %></h1>
+                                <h2>From</h2>
+                                <h3><%= rows[i].game %></h3>
+                            </div>
+                            <img src= <%= rows[i].image %> >
+                        </div>
+                    </span>
+                </div>
+            </li>
+            <% } %>
+        </ul>
+    </body>
+</html>

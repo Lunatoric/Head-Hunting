@@ -1,0 +1,24 @@
+.homeicon{
+    border-radius: 10px;
+    height:96px;
+    width:96px;
+}
+
+.standardicon{
+    height:100px;
+    width:100px;
+}
+
+.sidebar{
+    border-radius: 0;
+    gap: 20px;
+    position: fixed;
+    padding: 5px;
+    top:0px;
+    left:0px;
+    background-color: rgba(200, 200, 200, 0.1);
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 100%;
+}

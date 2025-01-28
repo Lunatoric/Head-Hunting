@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Site Size -->
+        <title>Head Hunting</title> <!-- Site Name -->
+        <link rel="stylesheet" href="css/style.css"> <!-- DIfferent CSS Imports -->
+        <link rel="stylesheet" href="css/sidebar.css">
+        <script type="module" src='displaydata.js'></script> <!-- Displays the Bosses -->
+        <script type="module" src='background.js'></script> <!-- The Background used -->
+    </head>
+
+    <body>
+        <article class="sidebar">
+            <a href="/"><img src="Images/Favicon.png" class="homeicon"></a>
+            <a href="/bosseskilled"><img src="Images/DeadSkull.png" class="standardicon"></a>
+            <a href="/bossesalive"><img src="Images/AliveSkull.png" class="standardicon"></a>
+            <a href="/gamedirectory"><img src="Images/Controller.png" class="standardicon"></a>
+        </article>
+        <div>
+            <div class="headerdiv">
+                <div class="select">
+                    <form>
+                        <div class="verticalalign1">
+                            <label class="medtext">Sort the Bosses</label>
+                            <select id="sortingstyle" class="seltext">
+                                <option value="clear">Clear</option>
+                                <option value="boss_name ASC">Bosses A-Z</option>
+                                <option value="boss_name DESC">Bosses Z-A</option>
+                                <option value="rating ASC">Rating 1-5</option>
+                                <option value="rating DESC">Rating 5-1</option>
+                                <option value="difficulty ASC">Difficulty 1-5</option>
+                                <option value="difficulty DESC">Difficulty 5-1</option>
+                                <option value="extid ASC">ID lowest to highest</option>
+                                <option value="extid DESC">ID highest to lowest</option>
+                            </select>
+                        </div>
+                    </form>
+                    
+                </div>
+                <div class="rightside"><a href="/newboss">
+                    <button type="button" id="newbossbtn">New Boss</button>
+                    </a>
+                </div>
+            </div>
+            <ul id="bosses">
+                <h1>Select an option from the Selector</h1>
+                <!-- Wait this is just a comment -->
+            </ul>
+        </div>
+    </body>
+</html>
