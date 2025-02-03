@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>New Boss</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="CSS/newboss.css">
         <script type="module" src='background.js'></script>
         <link rel="stylesheet" href="css/sidebar.css">
@@ -11,52 +12,44 @@
 
     <body>
         <article class="sidebar">
-            <a href="/"><img src="Images/Favicon.png" class="homeicon"></a>
-            <a href="/bosseskilled"><img src="Images/DeadSkull.png" class="standardicon"></a>
-            <a href="/bossesalive"><img src="Images/AliveSkull.png" class="standardicon"></a>
-            <a href="/gamedirectory"><img src="Images/Controller.png" class="standardicon"></a>
+            <a href="/" title="Home Page"><img src="Images/Favicon.png" class="homeicon"></a>
+            <a href="/bosseskilled?pagenum=1" title="Bosses Killed"><img src="Images/DeadSkull.png" class="standardicon"></a>
+            <a href="/bossesalive?pagenum=1" title="Bosses to Kill"><img src="Images/AliveSkull.png" class="standardicon"></a>
+            <a href="/gamedirectory?pagenum=1" title="Game List"><img src="Images/Controller.png" class="standardicon"></a>
         </article>
         <form method="post" action="/api/newboss">
             <div>
                 <label for="bossname">Boss Name</label>
                 <input type="text" id="bossname" name="boss_name" placeholder="Boss Name">
             </div>
-            <br>
             <div>
                 <label for="about">About the Boss</label>
-                <input type="text" id="about" name="about" placeholder="Just a lil smth">
+                <textarea type="text" id="about" name="about" placeholder="Just a lil smth"> </textarea>
             </div>
-            <br>
             <div>
                 <label for="rating">Boss Rating</label>
                 <input type="number" id="rating" name="rating" min="1" max="5" step="1">
             </div>
-            <br>
             <div>
                 <label for="bossgame">Boss Game</label>
                 <input type="text" id="bossgame" name="game" placeholder="Boss game">
             </div>
-            <br>
             <div>
                 <label for="bossimage">image of the Boss</label>
                 <input type="text" id="bossimage" name="image" placeholder="The site for the boss">
             </div>
-            <br>
             <div>
                 <label for="bosssite">Website for the Boss</label>
                 <input type="text" id="bosssite" name="website" placeholder="https:// some fandom site">
             </div>
-            <br>
             <div>
                 <label for="bossdif">Boss Difficulty</label>
                 <input type="number" id="bossdif" name="difficulty" min="1" max="5" step="1">
             </div>
-            <br>
             <div>
                 <label for="bossdead">Boss killed?</label>
                 <input type="checkbox" id="bossdead" name="killed">
             </div>
-            <br>
             <div>
                 <input type="reset">
                 <input type="submit">

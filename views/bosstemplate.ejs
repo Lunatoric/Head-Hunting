@@ -12,12 +12,12 @@
     </head>
 
     <body>
-        <div class="sidebar">
-            <a href="/"><img src="Images/Favicon.png" class="homeicon"></a>
-            <a href="/bosseskilled"><img src="Images/DeadSkull.png" class="standardicon"></a>
-            <a href="/bossesalive"><img src="Images/AliveSkull.png" class="standardicon"></a>
-            <a href="/gamedirectory"><img src="Images/Controller.png" class="standardicon"></a>
-        </div>
+        <article class="sidebar">
+            <a href="/" title="Home Page"><img src="Images/Favicon.png" class="homeicon"></a>
+            <a href="/bosseskilled?pagenum=1" title="Bosses Killed"><img src="Images/DeadSkull.png" class="standardicon"></a>
+            <a href="/bossesalive?pagenum=1" title="Bosses to Kill"><img src="Images/AliveSkull.png" class="standardicon"></a>
+            <a href="/gamedirectory?pagenum=1" title="Game List"><img src="Images/Controller.png" class="standardicon"></a>
+        </article>
         <div class="outerdiv">
             <div class="horizontaldiv"> <!-- Top Double -->
                 <article class="topdivleft"> <!-- The Name and Game -->
@@ -42,54 +42,32 @@
                         <h3>Rating</h3>
                     </div>
                     <div id="ratingstars" class="diffandrating">
-                        <script>
-                            const rating = <%= rows.rating %>
-                            const goodstar = rating;
-                            const badstar = 5-goodstar;
-                            const stardiv = document.getElementById("ratingstars");
-                            for (let i = 0; i < goodstar; i++) {
-                                const fullstar = document.createElement("img");
-                                fullstar.src = '/Images/starfull.png';
-                                stardiv.appendChild(fullstar);
-                            }
-                            for (let i = 0; i < badstar; i++) {
-                                const emptystar = document.createElement("img");
-                                emptystar.src = '/Images/starempty.png';
-                                stardiv.appendChild(emptystar);
-                            }
-                        </script>
+                        <% for (let i = 0; i < rows.rating; i++) { %>
+                            <img src="/Images/starfull.png">
+                        <% } %>
+                        <% for (let i = 0; i < 5-rows.rating; i++) { %>
+                            <img src="/Images/starempty.png">
+                        <% } %>
                     </div>
                     <div class="slamleftdiv">
                         <h3>Difficulty</h3>
                     </div>
                     <div id="diffskulls" class="diffandrating">
-                        <script>
-                            const difficulty = <%= rows.difficulty %>
-                            const goodskull = difficulty;
-                            const badskull = 5-goodskull;
-                            const skulldiv = document.getElementById("diffskulls");
-                            for (let i = 0; i < goodskull; i++) {
-                                const fullskull = document.createElement("img");
-                                fullskull.src = '/Images/skullfull.png';
-                                skulldiv.appendChild(fullskull);
-                            }
-                            for (let i = 0; i < badskull; i++) {
-                                const emptyskull = document.createElement("img");
-                                emptyskull.src = '/Images/skullempty.png';
-                                skulldiv.appendChild(emptyskull);
-                            }
-                        </script>
+                        <% for (let i = 0; i < rows.difficulty; i++) { %>
+                            <img src="/Images/skullfull.png">
+                        <% } %>
+                        <% for (let i = 0; i < 5-rows.difficulty; i++) { %>
+                            <img src="/Images/skullempty.png">
+                        <% } %>
                     </div>
                 </div>
             </div>
             <div class="horizontaldiv"> <!-- Bottom Double -->
                 <div id="killedbox" class="smalldiv"> <!-- Is the boss Dead? -->
                     <h3>Have you<br>Killed it?</h3>
-                    <% switch(rows.Killed) {
-                        case '1' : %>
+                    <% switch(rows.Killed) { case '1' : %>
                             <h5>The triumph is strong, be proud and kill more</h5>
-                            <% break; 
-                        case '0' : %>
+                            <% break; case '0' : %>
                             <button type="button" id="killedbossbtn" onclick="bosskill('<%= rows.boss_name %>')"> Click Once Killed </button>
                             <script>
                                 function bosskill(boss) {
@@ -100,12 +78,11 @@
                                     });
                                 };
                             </script>
-                            <% break;
-                    } %>
+                            <% break; } %>
                 </div>
                 <div class="bigdiv"> <!-- The Wiki Page :O -->
                     <h3>Dedicated Wiki Found</h3>
-                    <a href="<%=rows.website%>"><h6>Here</h6></a>
+                    <a href="<%=rows.website%>" target="_blank"><h6>Here</h6></a>
                 </div>
             </div>
         </div>
