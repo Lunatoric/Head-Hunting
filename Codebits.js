@@ -6,7 +6,7 @@ const newBoss = (boss_name, about, rating, game, image, website, difficulty, kil
         var alive = 0
     } else {
         var alive = 1
-    }
+    } 
     db.run(sql, [boss_name, about, rating, game, image, website, difficulty, alive], function(err){
         callback(err, {id: this.lastID});
     });

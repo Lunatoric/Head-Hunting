@@ -11,6 +11,6 @@ INSERT INTO Bosses (boss_name,about,rating,game,image,website,difficulty) VALUES
 INSERT INTO Bosses (boss_name,about,rating,game,image,website,difficulty) VALUES ("","",0,"","","",0)
 SELECT * from Bosses;
 
-UPDATE sqlite_sequence SET seq = 7 WHERE name = 'Bosses';
+UPDATE sqlite_sequence SET seq = 18 WHERE name = 'Bosses';
 
 SELECT * FROM Bosses ORDER BY rating DESC

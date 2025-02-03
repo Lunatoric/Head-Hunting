@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Head Hunting</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100..900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
         <script type="module" src='background.js'></script>
         <link rel="stylesheet" href="css/sidebar.css">
@@ -11,15 +12,13 @@
 
     <body>
         <article class="sidebar">
-            <a href="/"><img src="Images/Favicon.png" class="homeicon"></a>
-            <a href="/bosseskilled"><img src="Images/DeadSkull.png" class="standardicon"></a>
-            <a href="/bossesalive"><img src="Images/AliveSkull.png" class="standardicon"></a>
-            <a href="/gamedirectory"><img src="Images/Controller.png" class="standardicon"></a>
+            <a href="/" title="Home Page"><img src="Images/Favicon.png" class="homeicon"></a>
+            <a href="/bosseskilled?pagenum=1" title="Bosses Killed"><img src="Images/DeadSkull.png" class="standardicon"></a>
+            <a href="/bossesalive?pagenum=1" title="Bosses to Kill"><img src="Images/AliveSkull.png" class="standardicon"></a>
+            <a href="/gamedirectory?pagenum=1" title="Game List"><img src="Images/Controller.png" class="standardicon"></a>
         </article>
-        
         <ul id="bosses">
-            <% var curpage = page %>
-            <% for( var i = (curpage-1)*10; ((i < curpage*10) && (i < ((rows).length))); i++ ) { %>
+            <% for( var i = (page-1)*10; ((i < page*10) && (i < ((rows).length))); i++ ) { %>
             <% const bosssite = new URLSearchParams({boss : rows[i].boss_name}) %>
             <li>
                 <div  class="tooltip">
@@ -42,5 +41,21 @@
             </li>
             <% } %>
         </ul>
+        <aside class="alignright">
+            <ul class="horizontallist">
+                <% var curpage = page %>
+                <% for( var i = 1; (i < rows.length/10 + 1); i++ ) { %>
+                <% const pagesite = new URLSearchParams({pagenum : i }) %>
+                <li>
+                    <div  class="outline">
+                        <a href="<%= url + pagesite %>">
+                            <h1> <%= i %></h1>
+                        </a>
+                        
+                    </div>
+                </li>
+                <% } %>
+            </ul>
+        </aside>
     </body>
 </html>

@@ -110,6 +110,7 @@ div{
 
 .topdivleft{
     background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
     display:flex;
     flex-direction:column;
     justify-content: space-evenly;

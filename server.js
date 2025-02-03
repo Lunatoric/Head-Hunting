@@ -1,7 +1,6 @@
 const express = require('express');
 const path = require('path');
 const {newBoss, readBosses, gamelist, readgamesimple, readgame, readboss, updateBoss, deleteBoss, bosskilled, readbossstatus} = require('./Codebits.js');
-const { json } = require('stream/consumers');
 
 const app=express();
 
@@ -15,11 +14,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, `public/CSS/newboss.css`));
     res.sendFile(path.join(__dirname, 'public/CSS/sidebar.css'));
     res.sendFile(path.join(__dirname, 'public/Images/Destroyer.png'));
+    res.sendFile(path.join(__dirname, 'public/Images/BTD6_BAD_Artwork.webp'));
     res.sendFile(path.join(__dirname, 'public/Images/Favicon.png'));
     res.sendFile(path.join(__dirname, 'public/Images/DeadSkull.png'));
     res.sendFile(path.join(__dirname, 'public/Images/AliveSkull.png'));
     res.sendFile(path.join(__dirname, 'public/Images/Controller.png'));
-    res.sendFile(path.join(__dirname, 'public/sidebar.html'));
     res.sendFile(path.join(__dirname, 'public/index.html'));
     res.sendFile(path.join(__dirname, 'public/background.js'));
     res.sendFile(path.join(__dirname, 'public/simpledisplay.js'));
@@ -43,7 +42,7 @@ app.get(`/boss`, (req, res) => {
 });
 
 app.get(`/bosseskilled`, (req, res) => {
-    if (req.query[0] === undefined) {
+    if (req.query === undefined) {
         var pagenum = 1
     } else {
         var {pagenum} = req.query;
@@ -53,13 +52,13 @@ app.get(`/bosseskilled`, (req, res) => {
             res.status(500).send(err.message);
         } else {
             res.sendFile(path.join(__dirname, 'public/CSS/ejsstyle.css'));
-            res.render('dedicatedlist', { rows , page : pagenum });
+            res.render('dedicatedlist', { rows , page : pagenum, url : "/bosseskilled?" });
         }
     });
 });
 
 app.get(`/bossesalive`, (req, res) => {
-    if (req.query[0] === undefined) {
+    if (req.query === undefined) {
         var pagenum = 1
     } else {
         var {pagenum} = req.query;
@@ -69,7 +68,7 @@ app.get(`/bossesalive`, (req, res) => {
             res.status(500).send(err.message);
         } else {
             res.sendFile(path.join(__dirname, 'public/CSS/ejsstyle.css'));
-            res.render('dedicatedlist', { rows , page : pagenum });
+            res.render('dedicatedlist', { rows , page : pagenum, url : "/bossesalive?" });
         }
     });
 });
@@ -83,13 +82,16 @@ app.get(`/newboss`,(req, res) =>{
 })
 
 app.get(`/gameboss`, (req, res) => {
-    const {game} = req.query
+    var {game, pagenum} = req.query
+    if (pagenum === undefined) {
+        var pagenum = 1
+    }
     readgamesimple(game, (err, rows) => {
         if (err) {
             res.status(500).send(err.message);
         } else {
             res.sendFile(path.join(__dirname, 'public/CSS/ejsstyle.css'));
-            res.render('dedicatedlist', { rows });
+            res.render('dedicatedlist', { rows, page : pagenum, url : `/gameboss?game=${game}&`});
         }
     });
 });
